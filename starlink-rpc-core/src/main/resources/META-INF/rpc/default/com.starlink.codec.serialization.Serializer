@@ -1,0 +1,4 @@
+jdk=com.starlink.codec.serialization.JdkSerializer
+json=com.starlink.codec.serialization.JsonSerializer
+kryo=com.starlink.codec.serialization.KryoSerializer
+hessian=com.starlink.codec.serialization.HessianSerializer

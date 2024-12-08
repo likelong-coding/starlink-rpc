@@ -1,5 +1,7 @@
 package com.starlink.config;
 
+import com.starlink.constants.SerializerKeys;
+
 /**
  * RPC 框架配置
  */
@@ -24,6 +26,11 @@ public class RpcConfig {
      * 服务器端口号
      */
     private Integer serverPort = 8080;
+
+    /**
+     * 序列化器
+     */
+    private String serializer = SerializerKeys.JDK;
 
     public String getName() {
         return name;
@@ -57,6 +64,14 @@ public class RpcConfig {
         this.serverPort = serverPort;
     }
 
+    public String getSerializer() {
+        return serializer;
+    }
+
+    public void setSerializer(String serializer) {
+        this.serializer = serializer;
+    }
+
     @Override
     public String toString() {
         return "RpcConfig{" +
@@ -64,6 +79,7 @@ public class RpcConfig {
                ", version='" + version + '\'' +
                ", serverHost='" + serverHost + '\'' +
                ", serverPort=" + serverPort +
+               ", serializer='" + serializer + '\'' +
                '}';
     }
 }

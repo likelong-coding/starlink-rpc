@@ -1,4 +1,1 @@
 com.starlink.codec.serialization.JdkSerializer
-com.starlink.codec.serialization.JsonSerializer
-com.starlink.codec.serialization.HessianSerializer
-com.starlink.codec.serialization.KryoSerializer
