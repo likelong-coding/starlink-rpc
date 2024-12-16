@@ -1,6 +1,7 @@
 package com.starlink.config;
 
 import com.starlink.constants.SerializerKeys;
+import com.starlink.model.RegistryConfig;
 
 /**
  * RPC 框架配置
@@ -28,9 +29,22 @@ public class RpcConfig {
     private Integer serverPort = 8080;
 
     /**
+     * 注册中心配置
+     */
+    private RegistryConfig registryConfig = new RegistryConfig();
+
+    /**
      * 序列化器
      */
     private String serializer = SerializerKeys.JDK;
+
+    public RegistryConfig getRegistryConfig() {
+        return registryConfig;
+    }
+
+    public void setRegistryConfig(RegistryConfig registryConfig) {
+        this.registryConfig = registryConfig;
+    }
 
     public String getName() {
         return name;

@@ -16,8 +16,8 @@ public class EtcdRegistry {
                 .build();
 
         KV kvClient = client.getKVClient();
-        ByteSequence key = ByteSequence.from("test_key".getBytes());
-        ByteSequence value = ByteSequence.from("test_value".getBytes());
+        ByteSequence key = ByteSequence.from("likelong".getBytes());
+        ByteSequence value = ByteSequence.from("666".getBytes());
 
         // put the key-value
         kvClient.put(key, value).get();
