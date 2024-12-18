@@ -42,6 +42,12 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
         </dependency>
+
+        <!--etcd Java客户端-->
+        <dependency>
+            <groupId>io.etcd</groupId>
+            <artifactId>jetcd-core</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
