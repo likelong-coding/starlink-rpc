@@ -18,6 +18,7 @@
         <kryo.version>5.6.0</kryo.version>
         <jackson.version>2.13.4.2</jackson.version>
         <jetcd.version>0.7.7</jetcd.version>
+        <vertx.version>4.5.1</vertx.version>
     </properties>
 
     <packaging>pom</packaging>
@@ -64,6 +65,11 @@
                 <groupId>io.etcd</groupId>
                 <artifactId>jetcd-core</artifactId>
                 <version>${jetcd.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.vertx</groupId>
+                <artifactId>vertx-core</artifactId>
+                <version>${vertx.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

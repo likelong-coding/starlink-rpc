@@ -2,9 +2,14 @@ package com.starlink;
 
 import com.starlink.config.RpcConfig;
 import com.starlink.constants.RpcConstants;
+import com.starlink.model.RegistryConfig;
+import com.starlink.registry.Registry;
+import com.starlink.registry.RegistryFactory;
 import com.starlink.utils.ConfigUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * RPC 框架应用
@@ -17,14 +22,38 @@ public class RpcApplication {
     private static volatile RpcConfig rpcConfig;
 
     /**
+     * 保证方法仅需初始化一次
+     */
+    private static final AtomicBoolean initialized = new AtomicBoolean(false);
+
+    /**
+     * 框架初始化，支持传入自定义配置
+     *
+     * @param newRpcConfig
+     */
+    /**
      * 框架初始化，支持传入自定义配置
      *
      * @param newRpcConfig
      */
     public static void init(RpcConfig newRpcConfig) {
-        rpcConfig = newRpcConfig;
         logger.info("rpc init, config = {}", newRpcConfig.toString());
+
+        // 循环直到初始化完成
+        while (!initialized.get()) {
+            // 只有一个线程能进入下面的代码块
+            if (initialized.compareAndSet(false, true)) {
+                rpcConfig = newRpcConfig;
+                // 注册中心初始化
+                RegistryConfig registryConfig = rpcConfig.getRegistryConfig();
+                Registry registry = RegistryFactory.getInstance(registryConfig.getRegistry());
+                registry.init(registryConfig);
+                logger.info("registry init, config = {}", registryConfig);
+            }
+        }
+
     }
+
 
     /**
      * 初始化

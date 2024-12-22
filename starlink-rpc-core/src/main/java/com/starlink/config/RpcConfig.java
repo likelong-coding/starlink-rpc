@@ -11,7 +11,7 @@ public class RpcConfig {
     /**
      * 名称
      */
-    private String name = "yu-rpc";
+    private String name = "starlink-rpc";
 
     /**
      * 版本号
@@ -26,7 +26,7 @@ public class RpcConfig {
     /**
      * 服务器端口号
      */
-    private Integer serverPort = 8080;
+    private Integer serverPort = 8000;
 
     /**
      * 注册中心配置

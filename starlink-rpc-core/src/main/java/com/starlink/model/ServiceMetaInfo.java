@@ -1,5 +1,6 @@
 package com.starlink.model;
 
+import cn.hutool.core.util.StrUtil;
 import com.starlink.constants.RpcConstants;
 
 /**
@@ -16,7 +17,7 @@ public class ServiceMetaInfo {
     /**
      * 服务版本号
      */
-    private String serviceVersion =  RpcConstants.DEFAULT_SERVICE_VERSION;
+    private String serviceVersion = RpcConstants.DEFAULT_SERVICE_VERSION;
 
     /**
      * 服务域名
@@ -48,6 +49,19 @@ public class ServiceMetaInfo {
     public String getServiceNodeKey() {
         return String.format("%s/%s:%s", getServiceKey(), serviceHost, servicePort);
     }
+
+    /**
+     * 获取完整服务地址（服务调用会用到）
+     *
+     * @return
+     */
+    public String getServiceAddress() {
+        if (!StrUtil.contains(serviceHost, "http")) {
+            return String.format("http://%s:%s", serviceHost, servicePort);
+        }
+        return String.format("%s:%s", serviceHost, servicePort);
+    }
+
 
     public String getServiceName() {
         return serviceName;
