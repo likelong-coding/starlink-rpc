@@ -12,6 +12,11 @@ import java.util.List;
 public interface Registry {
 
     /**
+     * 服务端心跳检测
+     */
+    void heartBeat();
+
+    /**
      * 初始化
      *
      * @param registryConfig
