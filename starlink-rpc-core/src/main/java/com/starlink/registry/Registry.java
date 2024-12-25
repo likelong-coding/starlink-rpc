@@ -49,4 +49,9 @@ public interface Registry {
      * 服务销毁
      */
     void destroy();
+
+    /**
+     * 消费端监听
+     */
+    void watch(String serviceNodeKey);
 }
