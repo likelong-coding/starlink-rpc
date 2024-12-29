@@ -1,1 +1,2 @@
 etcd=com.starlink.registry.EtcdRegistry
+zookeeper=com.starlink.registry.ZooKeeperRegistry

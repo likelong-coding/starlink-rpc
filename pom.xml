@@ -19,6 +19,7 @@
         <jackson.version>2.13.4.2</jackson.version>
         <jetcd.version>0.7.7</jetcd.version>
         <vertx.version>4.5.1</vertx.version>
+        <curator.version>5.6.0</curator.version>
     </properties>
 
     <packaging>pom</packaging>
@@ -70,6 +71,13 @@
                 <groupId>io.vertx</groupId>
                 <artifactId>vertx-core</artifactId>
                 <version>${vertx.version}</version>
+            </dependency>
+
+            <!-- zookeeper -->
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-x-discovery</artifactId>
+                <version>${curator.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

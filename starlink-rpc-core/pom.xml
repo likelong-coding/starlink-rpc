@@ -49,10 +49,15 @@
             <artifactId>jetcd-core</artifactId>
         </dependency>
 
-        <!-- web服務器 -->
+        <!-- web服务器 -->
         <dependency>
             <groupId>io.vertx</groupId>
             <artifactId>vertx-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-x-discovery</artifactId>
         </dependency>
     </dependencies>
 
