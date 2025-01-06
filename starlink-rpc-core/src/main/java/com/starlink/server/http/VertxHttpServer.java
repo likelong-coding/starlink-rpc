@@ -1,5 +1,6 @@
-package com.starlink.server;
+package com.starlink.server.http;
 
+import com.starlink.server.VertxServer;
 import io.vertx.core.Vertx;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,7 +8,7 @@ import org.slf4j.LoggerFactory;
 /**
  * Vertx HTTP 服务器
  */
-public class VertxHttpServer implements HttpServer {
+public class VertxHttpServer implements VertxServer {
 
     private static final Logger logger = LoggerFactory.getLogger(VertxHttpServer.class);
 

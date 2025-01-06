@@ -1,4 +1,4 @@
-package com.starlink.server;
+package com.starlink.server.http;
 
 import com.starlink.RpcApplication;
 import com.starlink.codec.serialization.Serializer;

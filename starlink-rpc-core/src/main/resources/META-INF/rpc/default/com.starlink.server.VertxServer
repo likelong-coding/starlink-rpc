@@ -1,0 +1,2 @@
+http=com.starlink.server.http.VertxHttpServer
+tcp=com.starlink.server.tcp.VertxTcpServer

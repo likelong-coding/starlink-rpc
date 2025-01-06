@@ -6,8 +6,8 @@ import com.starlink.model.ServiceMetaInfo;
 import com.starlink.registry.LocalRegistry;
 import com.starlink.registry.Registry;
 import com.starlink.registry.RegistryFactory;
-import com.starlink.server.HttpServer;
-import com.starlink.server.VertxHttpServer;
+import com.starlink.server.VertxServer;
+import com.starlink.server.VertxServerFactory;
 
 /**
  * @author likelong
@@ -37,8 +37,8 @@ public class ServiceStarter {
             throw new RuntimeException(e);
         }
 
-        // 启动Http服务
-        HttpServer httpServer = new VertxHttpServer();
-        httpServer.doStart(rpcConfig.getServerPort());
+        // 启动服务器
+        VertxServer server = VertxServerFactory.getInstance(rpcConfig.getProtocol());
+        server.doStart(rpcConfig.getServerPort());
     }
 }

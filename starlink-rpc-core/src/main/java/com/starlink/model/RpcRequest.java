@@ -1,12 +1,14 @@
 package com.starlink.model;
 
 import com.starlink.constants.RpcConstants;
+import lombok.Builder;
 
 import java.io.Serializable;
 
 /**
  * RPC 请求
  */
+@Builder
 public class RpcRequest implements Serializable {
 
     /**
