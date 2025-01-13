@@ -11,9 +11,9 @@ public class TestService {
     public static void main(String[] args) {
         // 创建代理对象
         HelloService helloService = ServiceProxyFactory.getProxy(HelloService.class);
-        String hello = helloService.hello("jack");
-        helloService.hello("jack1");
-        helloService.hello("jack2");
-        System.out.println(hello);
+        for (int i = 0; i < 10; i++) {
+            System.out.println(helloService.hello("jack" + i));
+        }
+
     }
 }
