@@ -1,7 +1,7 @@
 package com.starlink.config;
 
+import com.starlink.constants.LoadBalancerKeys;
 import com.starlink.constants.SerializerKeys;
-import com.starlink.model.RegistryConfig;
 import lombok.Data;
 
 /**
@@ -29,7 +29,7 @@ public class RpcConfig {
      * 服务器主机名
      */
     private String serverHost = "localhost";
-    
+
     /**
      * 服务器端口号
      */
@@ -44,4 +44,9 @@ public class RpcConfig {
      * 序列化器
      */
     private String serializer = SerializerKeys.JDK;
+
+    /**
+     * 负载均衡器
+     */
+    private String loadBalancer = LoadBalancerKeys.ROUND_ROBIN;
 }

@@ -4,6 +4,7 @@ import cn.hutool.core.collection.CollUtil;
 import com.starlink.RpcApplication;
 import com.starlink.config.RpcConfig;
 import com.starlink.constants.RpcConstants;
+import com.starlink.loadbalancer.LoadBalancerFactory;
 import com.starlink.model.RpcRequest;
 import com.starlink.model.RpcResponse;
 import com.starlink.model.ServiceMetaInfo;
@@ -14,7 +15,9 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 服务代理（JDK 动态代理）
@@ -48,8 +51,13 @@ public class ServiceProxy implements InvocationHandler {
                 throw new RuntimeException("暂无服务地址");
             }
 
+            // 将调用方法名（请求路径）作为负载均衡参数
+            Map<String, Object> requestParams = new HashMap<>();
+            requestParams.put("methodName", rpcRequest.getMethodName());
+
             // 负载均衡策略
-            ServiceMetaInfo selectedServiceMetaInfo = serviceMetaInfoList.get(0);
+            ServiceMetaInfo selectedServiceMetaInfo = LoadBalancerFactory.getInstance(rpcConfig.getLoadBalancer())
+                    .select(requestParams, serviceMetaInfoList);
             RpcResponse rpcResponse = VertxClientFactory.getInstance(rpcConfig.getProtocol())
                     .doRequest(rpcRequest, selectedServiceMetaInfo);
 

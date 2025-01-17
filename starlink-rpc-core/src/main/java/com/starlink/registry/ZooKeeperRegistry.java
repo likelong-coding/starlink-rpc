@@ -1,7 +1,7 @@
 package com.starlink.registry;
 
 import cn.hutool.core.collection.ConcurrentHashSet;
-import com.starlink.model.RegistryConfig;
+import com.starlink.config.RegistryConfig;
 import com.starlink.model.ServiceMetaInfo;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;

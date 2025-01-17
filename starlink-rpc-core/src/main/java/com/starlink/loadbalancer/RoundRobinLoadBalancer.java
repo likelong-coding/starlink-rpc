@@ -9,7 +9,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * 轮询负载均衡器
  */
-public class RoundRobinLoadBalancer implements LoadBalancer {
+public class RoundRobinLoadBalancer  extends AbstractLoadBalancer  {
 
     /**
      * 当前轮询的下标(原子类防止并发问题)
@@ -17,7 +17,7 @@ public class RoundRobinLoadBalancer implements LoadBalancer {
     private final AtomicInteger currentIndex = new AtomicInteger(0);
 
     @Override
-    public ServiceMetaInfo select(List<ServiceMetaInfo> serviceMetaInfoList) {
+    protected ServiceMetaInfo select(List<ServiceMetaInfo> serviceMetaInfoList) {
         if (serviceMetaInfoList.isEmpty()) {
             return null;
         }

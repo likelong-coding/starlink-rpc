@@ -2,7 +2,7 @@ package com.starlink;
 
 import com.starlink.config.RpcConfig;
 import com.starlink.constants.RpcConstants;
-import com.starlink.model.RegistryConfig;
+import com.starlink.config.RegistryConfig;
 import com.starlink.registry.Registry;
 import com.starlink.registry.RegistryFactory;
 import com.starlink.utils.ConfigUtils;

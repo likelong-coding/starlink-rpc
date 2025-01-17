@@ -5,7 +5,7 @@ import cn.hutool.core.collection.ConcurrentHashSet;
 import cn.hutool.cron.CronUtil;
 import cn.hutool.cron.task.Task;
 import cn.hutool.json.JSONUtil;
-import com.starlink.model.RegistryConfig;
+import com.starlink.config.RegistryConfig;
 import com.starlink.model.ServiceMetaInfo;
 import io.etcd.jetcd.*;
 import io.etcd.jetcd.options.GetOption;

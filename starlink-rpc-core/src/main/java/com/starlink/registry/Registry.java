@@ -1,7 +1,7 @@
 package com.starlink.registry;
 
 
-import com.starlink.model.RegistryConfig;
+import com.starlink.config.RegistryConfig;
 import com.starlink.model.ServiceMetaInfo;
 
 import java.util.List;

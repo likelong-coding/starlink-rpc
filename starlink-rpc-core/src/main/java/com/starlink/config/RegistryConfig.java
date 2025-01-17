@@ -1,4 +1,4 @@
-package com.starlink.model;
+package com.starlink.config;
 
 
 
