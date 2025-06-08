@@ -1,0 +1,4 @@
+failBack=com.starlink.fault.tolerant.FailBackTolerantStrategy
+failFast=com.starlink.fault.tolerant.FailFastTolerantStrategy
+failOver=com.starlink.fault.tolerant.FailOverTolerantStrategy
+failSafe=com.starlink.fault.tolerant.FailSafeTolerantStrategy

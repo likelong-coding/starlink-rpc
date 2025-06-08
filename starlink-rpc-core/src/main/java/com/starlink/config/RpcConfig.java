@@ -3,6 +3,7 @@ package com.starlink.config;
 import com.starlink.constants.LoadBalancerKeys;
 import com.starlink.constants.RetryStrategyKeys;
 import com.starlink.constants.SerializerKeys;
+import com.starlink.constants.TolerantStrategyKeys;
 import lombok.Data;
 
 /**
@@ -55,4 +56,9 @@ public class RpcConfig {
      * 重试策略
      */
     private String retryStrategy = RetryStrategyKeys.NO;
+
+    /**
+     * 容错策略
+     */
+    private String tolerantStrategy = TolerantStrategyKeys.FAIL_FAST;
 }

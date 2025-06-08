@@ -1,0 +1,2 @@
+no=com.starlink.fault.retry.NoRetryStrategy
+fixedInterval=com.starlink.fault.retry.FixedIntervalRetryStrategy
