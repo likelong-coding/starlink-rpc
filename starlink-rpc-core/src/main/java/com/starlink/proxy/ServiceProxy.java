@@ -4,6 +4,8 @@ import cn.hutool.core.collection.CollUtil;
 import com.starlink.RpcApplication;
 import com.starlink.config.RpcConfig;
 import com.starlink.constants.RpcConstants;
+import com.starlink.fault.retry.RetryStrategy;
+import com.starlink.fault.retry.RetryStrategyFactory;
 import com.starlink.loadbalancer.LoadBalancerFactory;
 import com.starlink.model.RpcRequest;
 import com.starlink.model.RpcResponse;
@@ -58,8 +60,13 @@ public class ServiceProxy implements InvocationHandler {
             // 负载均衡策略
             ServiceMetaInfo selectedServiceMetaInfo = LoadBalancerFactory.getInstance(rpcConfig.getLoadBalancer())
                     .select(requestParams, serviceMetaInfoList);
-            RpcResponse rpcResponse = VertxClientFactory.getInstance(rpcConfig.getProtocol())
-                    .doRequest(rpcRequest, selectedServiceMetaInfo);
+
+            // 使用重试机制
+            RetryStrategy retryStrategy = RetryStrategyFactory.getInstance(rpcConfig.getRetryStrategy());
+            RpcResponse rpcResponse = retryStrategy.doRetry(() ->
+                    VertxClientFactory.getInstance(rpcConfig.getProtocol())
+                            .doRequest(rpcRequest, selectedServiceMetaInfo)
+            );
 
             return rpcResponse.getData();
         } catch (Exception e) {

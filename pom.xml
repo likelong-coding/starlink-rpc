@@ -20,6 +20,7 @@
         <jetcd.version>0.7.7</jetcd.version>
         <vertx.version>4.5.1</vertx.version>
         <curator.version>5.6.0</curator.version>
+        <guava-retrying.version>2.0.0</guava-retrying.version>
     </properties>
 
     <packaging>pom</packaging>
@@ -78,6 +79,13 @@
                 <groupId>org.apache.curator</groupId>
                 <artifactId>curator-x-discovery</artifactId>
                 <version>${curator.version}</version>
+            </dependency>
+
+            <!-- 重试框架 -->
+            <dependency>
+                <groupId>com.github.rholder</groupId>
+                <artifactId>guava-retrying</artifactId>
+                <version>${guava-retrying.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
