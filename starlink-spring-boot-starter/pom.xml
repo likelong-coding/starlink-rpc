@@ -9,26 +9,11 @@
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
-    <licenses>
-        <license>
-            <name>The MIT License (MIT)</name>
-            <url>https://mit-license.org/</url>
-            <distribution>repo</distribution>
-        </license>
-    </licenses>
-
-    <developers>
-        <developer>
-            <name>likelong</name>
-            <email>likelong.lkl@163.com</email>
-            <organization>free</organization>
-        </developer>
-    </developers>
-
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring-boot.version>2.6.13</spring-boot.version>
     </properties>
 
     <dependencyManagement>
@@ -36,7 +21,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>3.2.5</version>
+                <version>${spring-boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -48,11 +33,13 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
+
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <groupId>com.starlink</groupId>
+            <artifactId>starlink-rpc-core</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
+
     </dependencies>
 
 </project>
